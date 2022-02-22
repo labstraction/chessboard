@@ -1,0 +1,31 @@
+html, body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.cell{
+    display: inline-block;
+
+}
+
+.w-background{
+    background-color: white;
+}
+
+.b-background{
+    background-color: black;
+}
+
+
+.chessboard-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.chessboard{
+    border: 0.01vh solid black;
+}
+
