@@ -8,7 +8,7 @@ function createChessBoard(number){
 
         const row = document.createElement('div');
 
-        let cellSide = 30 / number;
+        let cellSide = 70 / number;
 
         row.style.height = cellSide + 'vw';
 
@@ -27,7 +27,7 @@ function createChessBoard(number){
             cell.style.height = cellSide + 'vw';
             cell.style.maxHeight = cellSide + 'vh';
 
-            cell.className += (i + j) % 2 === 0 ? 'w-background ' : 'b-background ';
+            cell.style.backgroundColor = (i + j) % 2 === 0 ? 'white' : 'black';
 
             cells.push(cell);
 
@@ -41,7 +41,7 @@ function createChessBoard(number){
 
     }
 
-    requestAnimationFrame(() => animate(0))
+    requestAnimationFrame(() => animate2(0))
 
 
     
@@ -65,9 +65,50 @@ function animate(time){
 
     
 
-    if (time < 3000) {
-        requestAnimationFrame(() => animate(time + 1))
+    requestAnimationFrame(() => animate(time + 1))
+}
+
+function animate2(time){
+
+
+
+    let index = time % cells.length;
+
+    // if (cells[index - 1]) {
+    //     cells[index - 1].style.backgroundColor = '';
+    // } else {
+    //     cells[cells.length - 1].style.backgroundColor = '';
+    // }
+
+    const column = index % Math.sqrt(cells.length);
+    const row = Math.floor(index / Math.sqrt(cells.length));
+    const board = Math.floor(time / cells.length);
+
+    cells[index].style.backgroundColor = (column + row + board)  % 2 === 0 ? "black" : "white" ;
+
+    
+    requestAnimationFrame(() => animate2(time + 1))
+    
+
+    
+}
+
+function animate3(time){
+
+
+
+    
+    if (time % 30 === 0) {
+        for (const cell of cells) {
+            cell.style.backgroundColor = cell.style.backgroundColor === 'black' ? 'white' : 'black';
+        }
     }
+        
+    
+
+    
+    requestAnimationFrame(() => animate3(time + 1))
+    
 
     
 }
