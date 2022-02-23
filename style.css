@@ -6,11 +6,12 @@ html, body{
 
 .cell{
     display: inline-block;
-
+    position: relative;
+    background-size: contain;
 }
 
 .w-background{
-    background-color: white;
+    background-color: rgba(255, 0, 0, 0);
 }
 
 .b-background{
@@ -26,6 +27,9 @@ html, body{
 }
 
 .chessboard{
-    border: 0.01vh solid black;
+
 }
+
+
+
 
